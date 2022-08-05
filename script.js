@@ -41,27 +41,30 @@ function numberButtons() {
     const operators = document.querySelectorAll('.operator');
     const equalBtn = document.getElementById('equals');
 
-    let currentValue = '';
+    let currentValue = ''; 
     let storedValue = 0;
     let storedValue2 = 0;
     let storedOp = '';
     let result = 0;
-    let pressedOp = false;
-
+    let opResult = 0;
     numbers.forEach((button) => {
         button.addEventListener('click' , function(e) {
             display.textContent += button.textContent;
+
             currentValue += parseInt(button.textContent);
             console.log({currentValue});
         });
     });
 
     operators.forEach((op) => {
-        
         op.addEventListener('click' , function(e){
             
-            
+             /* for (let i= 1 ; i < 10 ; i++) { */
+             storedValue = parseInt(currentValue); //when any operator button pressed store currentValue in. 
+             console.log({storedValue});
+             currentValue = ''; //reset current value after storing last one to storedValue
 
+            
             if (op.id === 'plus') {
                 storedOp = op.textContent;
                 display.textContent += op.textContent;
@@ -82,30 +85,21 @@ function numberButtons() {
                 display.textContent += op.textContent;
             }
             
-            if (op.id === 'equals') {
-                //storedOp = op.textContent;
-                display.textContent += op.textContent;
-                
-                
-            }
+           opResult = operate(storedValue , storedOp , currentValue);
+           console.log({opResult});
             
-                
-            storedValue = currentValue;
-            console.log({storedValue});
-            currentValue = '';
-                
             
-
-            
-
         });
     });
 
     equalBtn.addEventListener('click' , function(e){
-        storedValue2 = currentValue;
+        storedValue2 = parseInt(currentValue); //stores new currentValue after pressing = button
         display.textContent += equalBtn.textContent;
         console.log({storedValue2});
-        result = operate(storedValue , storedOp , storedValue2);
+        result = operate(storedValue , storedOp , storedValue2); //calls operate function after pressing = 
+        display.textContent += result;
+
+        currentValue = result; //sets new currentValue to result's value. incase user decides to operate again.
         console.log({result});
     });
     
