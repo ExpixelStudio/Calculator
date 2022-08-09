@@ -2,7 +2,7 @@
 
 let display = document.querySelector('.display');
 
-    
+    let i = 0;
     let currentValue = ''; 
     let storedValue = [];
     let storedValue2 = 0;
@@ -36,7 +36,7 @@ function operate(inputA , op , inputB, ...more) {
     }
     
     if (op == '÷') {
-        return subtract(inputA , inputB);
+        return divide(inputA , inputB);
     }
 }
 
@@ -48,7 +48,7 @@ function numberButtons() {
         button.addEventListener('click' , function(e) {
             display.textContent += button.textContent;
 
-            currentValue += button.textContent;
+            currentValue += button.textContent; 
             console.log({currentValue});
         });
     });
@@ -56,7 +56,7 @@ function numberButtons() {
 
 function operatorButtons() {
    
-    let i = 0;
+    
     const operators = document.querySelectorAll('.operator');
 
     operators.forEach((op) => {
@@ -67,7 +67,7 @@ function operatorButtons() {
              storedValue[i] = parseInt(currentValue); //when any operator button pressed store currentValue in. 
              console.log({storedValue});
 
-             currentValue = ''; //clear current value after storing
+             currentValue = ''; //clear first currentValue after storing
             
             if (op.id === 'plus') {
                 storedOp[i] = op.textContent;
@@ -95,8 +95,8 @@ function operatorButtons() {
            i++;
            console.log({i});
 
-           if (i === 2) {
-
+           if (i === 2) { // operates on values after 2 values are entered
+            
                 result = operate(storedValue[0] , storedOp[0] , storedValue[1]);
               // display.textContent = '';
                 display.textContent += "=" + result + storedOp; 
@@ -120,11 +120,11 @@ function equalButton(){
         storedValue[1] = parseInt(currentValue); //stores new currentValue after pressing = button
         result = operate(storedValue[0] , storedOp[0] , storedValue[1]);
               // display.textContent = '';
-                display.textContent += "=" + result + storedOp; 
+                display.textContent += "=" + result; 
                 console.log({result});
-                //i = 1;
-                storedValue[0] = result;
-                storedOp[0] = storedOp[1];
+                /* storedValue[0] = result;
+                storedOp[0] = storedOp[1]; */
+                i = 1;
         console.log({result});
     });    
 }
