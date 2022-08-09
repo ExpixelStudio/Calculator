@@ -2,6 +2,15 @@
 
 let display = document.querySelector('.display');
 
+    
+    let currentValue = ''; 
+    let storedValue = [];
+    let storedValue2 = 0;
+    let currentOp = '';
+    let storedOp = [];
+    let result = 0;
+    let opResult = 0;
+
 
 let add = (a,b) => a+b;
 
@@ -13,11 +22,6 @@ let divide = (a,b) => a/b;
 
 function operate(inputA , op , inputB, ...more) {
     
-    // inputA = parseInt(prompt('num1'));
-    /* opp = prompt('operator');
-    inputB = parseInt(prompt('num2')); */
-
-
     if (op == '+') {
         return add(inputA , inputB);
         console.log(add);
@@ -38,78 +42,96 @@ function operate(inputA , op , inputB, ...more) {
 
 function numberButtons() {
     const numbers = document.querySelectorAll('.num-btn');
-    const operators = document.querySelectorAll('.operator');
-    const equalBtn = document.getElementById('equals');
-
-    let currentValue = ''; 
-    let storedValue = 0;
-    let storedValue2 = 0;
-    let storedOp = '';
-    let result = 0;
-    let opResult = 0;
+    
+    
     numbers.forEach((button) => {
         button.addEventListener('click' , function(e) {
             display.textContent += button.textContent;
 
-            currentValue += parseInt(button.textContent);
+            currentValue += button.textContent;
             console.log({currentValue});
         });
     });
+}
+
+function operatorButtons() {
+   
+    let i = 0;
+    const operators = document.querySelectorAll('.operator');
 
     operators.forEach((op) => {
         op.addEventListener('click' , function(e){
             
-             /* for (let i= 1 ; i < 10 ; i++) { */
-             storedValue = parseInt(currentValue); //when any operator button pressed store currentValue in. 
+             //for (let i= 0 ; i < 10 ; i++) {
+             
+             storedValue[i] = parseInt(currentValue); //when any operator button pressed store currentValue in. 
              console.log({storedValue});
-             currentValue = ''; //reset current value after storing last one to storedValue
 
+             currentValue = ''; //clear current value after storing
             
             if (op.id === 'plus') {
-                storedOp = op.textContent;
+                storedOp[i] = op.textContent;
                 display.textContent += op.textContent;
             }
 
             if (op.id === 'minus') {
-                storedOp = op.textContent;
+                storedOp[i] = op.textContent;
                 display.textContent += op.textContent;
             }
 
             if (op.id === 'multiply') {
-                storedOp = op.textContent;
+                storedOp[i] = op.textContent;
                 display.textContent += op.textContent;
             }
 
             if (op.id === 'divide') {
-                storedOp = op.textContent;
+                storedOp[i] = op.textContent;
                 display.textContent += op.textContent;
             }
             
-           opResult = operate(storedValue , storedOp , currentValue);
-           console.log({opResult});
+            console.log({storedOp});
+           //opResult = operate(storedValue , storedOp , currentValue);
             
-            
+           i++;
+           console.log({i});
+
+           if (i === 2) {
+
+                result = operate(storedValue[0] , storedOp[0] , storedValue[1]);
+              // display.textContent = '';
+                display.textContent += "=" + result + storedOp; 
+                console.log({result});
+                i = 1;
+                storedValue[0] = result;
+                storedOp[0] = storedOp[1];
+                //storedValue[0] = result ;
+           }
+
+
         });
     });
-
-    equalBtn.addEventListener('click' , function(e){
-        storedValue2 = parseInt(currentValue); //stores new currentValue after pressing = button
-        display.textContent += equalBtn.textContent;
-        console.log({storedValue2});
-        result = operate(storedValue , storedOp , storedValue2); //calls operate function after pressing = 
-        display.textContent += result;
-
-        currentValue = result; //sets new currentValue to result's value. incase user decides to operate again.
-        console.log({result});
-    });
-    
-        console.log({storedOp});
-            
-            
-    
 }
-numberButtons();
 
+function equalButton(){
+
+    const equalBtn = document.getElementById('equals');
+    
+    equalBtn.addEventListener('click' , function(e){
+        storedValue[1] = parseInt(currentValue); //stores new currentValue after pressing = button
+        result = operate(storedValue[0] , storedOp[0] , storedValue[1]);
+              // display.textContent = '';
+                display.textContent += "=" + result + storedOp; 
+                console.log({result});
+                //i = 1;
+                storedValue[0] = result;
+                storedOp[0] = storedOp[1];
+        console.log({result});
+    });    
+}
+
+numberButtons();
+operatorButtons();
+equalButton();
 
 /* function operatorButtons(opi) {
     const operators = document.querySelectorAll('.operator');
@@ -148,7 +170,7 @@ let clearBtn = () => {
 clearBtn();
 
 
-console.log(operate());
+
 
 
 /* 
