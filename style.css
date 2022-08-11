@@ -1,0 +1,138 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items : center;
+    justify-content: center;
+    height : 100vh;
+    border : 1px forestgreen solid;
+    
+}
+
+.device-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px rgb(34, 86, 107) solid;
+    height: 62vh;
+    width : 20vw;
+    background-color: skyblue;
+    border-radius: 12px;
+    box-shadow: 5px 8px rgb(88, 127, 139) ;
+    
+}
+
+.top-panel {
+    display:flex;   
+    align-items: center;
+    /* justify-content: space-between; */
+    padding : 5px;
+    background-color: skyblue ;
+    border-radius: 12px;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    
+}
+
+.logo {
+    border: 2px lightskyblue solid;
+    color: rgb(74, 45, 80);
+    font-weight: bold;
+    padding-left: 2px;
+    
+}
+
+.power-circle {
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border-radius: 10px;
+    background-color: greenyellow;
+    border : 2px rgb(27, 122, 146) solid;
+}
+
+/* Wrapper for Display Panel */
+.display-container {
+    display:flex;
+    justify-content: center;
+    align-items : center;
+    border : skyblue 4px solid;
+    height:30%;
+    background-color: rgb(61, 61, 61);
+    border-radius: 8px;
+}
+
+/* Display Panel */
+.display{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 60%;
+    width: 90%;
+    justify-content: right;
+    border : 3px    rgb(233, 232, 232) solid;
+    font-size: 50px;
+    background-color: silver;
+    border-radius : 3px;
+}
+
+button {
+    width : 24.5%;
+    font-size: 20px;
+    border-radius: 4px;
+    
+}   
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    max-height: 70%;
+    max-width : 100%;
+    position: relative;
+    padding : 10px;
+    /* border: 2px rgb(0, 0, 0) solid; */
+    border-radius: 12px;
+}
+
+.row1 {
+    display: flex; 
+    height : 13vh;
+    width : 100%;
+    justify-content: space-between;
+    padding : 2px;
+    /* border: 1px rgb(109, 47, 47) solid; */
+}
+
+.row2 {
+    display: flex; 
+    height : 13vh;
+    width : 100%;  /* sets to size of parent container */
+    justify-content: space-between;
+    padding : 2px;
+    /* border: 1px rgb(109, 47, 47) solid; */
+}
+
+.row3 {
+    display: flex; 
+    height : 13vh;
+    width: 100%;
+    justify-content: space-between;
+    padding : 2px;
+    /* border: 1px rgb(109, 47, 47) solid; */
+}
+
+.row4 {
+    display: flex; 
+    height : 13vh;
+    width: 100%;
+    padding : 2px;
+    justify-content: space-between;
+    /* border: 1px rgb(109, 47, 47) solid; */
+}

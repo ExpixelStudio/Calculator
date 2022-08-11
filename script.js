@@ -64,7 +64,7 @@ function operatorButtons() {
             
              //for (let i= 0 ; i < 10 ; i++) {
              
-             storedValue[i] = parseInt(currentValue); //when any operator button pressed store currentValue in. 
+             storedValue[i] = parseInt(currentValue); //when any operator button is pressed store currentValue in. 
              console.log({storedValue});
 
              currentValue = ''; //clear first currentValue after storing
@@ -132,30 +132,6 @@ function equalButton(){
 numberButtons();
 operatorButtons();
 equalButton();
-
-/* function operatorButtons(opi) {
-    const operators = document.querySelectorAll('.operator');
-
-    operators.forEach((op) => {
-        op.addEventListener('click' , function(e){
-            
-            if (op.id === 'plus') {
-                
-                display.textContent += op.textContent;
-                return opi = true;
-            }
-
-            if (op.id === 'minus') {
-                display.textContent += op.textContent;
-            }
-
-            if (op.id === 'multiply') {
-                display.textContent += op.textContent;
-            }
-
-        });
-    });
-} */
 
 
 

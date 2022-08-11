@@ -4,34 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ='stylesheet' href = 'style.css'>
     <title>Document</title>
     
 </head>
 <body>
-    <div class="logo"></div>
+    
 
-    <div class="display"><input type="text"></div>
+    <div class="device-container">
+        <div class="top-panel">
+            <div class="brand">
+                <div class="logo">EXPixel</div>
+                <div class="logo-img"><img src="images/lillogo.png" alt="log"></div>
+            </div>
+            <div class =power-circle></div>
+        </div>
 
-    <div class="buttons">
-        <button class ='num-btn' id = "7">7</button>
-        <button class ='num-btn' id = "8">8</button>
-        <button class ='num-btn' id = "9">9</button>
-        <button class ='num-btn' id = "4">4</button>
-        <button class ='num-btn' id = "5">5</button>
-        <button class ='num-btn' id = "6">6</button>
-        <button class ='num-btn' id = "1">1</button>
-        <button class ='num-btn' id = "2">2</button>
-        <button class ='num-btn' id = "3">3</button>
-        <button class ='num-btn' id = "0">0</button>
+        <div class="display-container">
+            <div class="display"></div>
+        </div>
 
-        <button class = 'equal' id = 'equals'>=</button>
-        
-        <button class = 'operator' id = 'plus'>+</button>
-        <button class = 'operator' id = 'minus'>-</button>
-        <button class = 'operator' id = 'multiply'>x</button>
-        <button class = 'operator' id = 'divide'>÷</button>
+        <div class="buttons-container">
+            <div class="row1">
+                <button class ='num-btn' id = "7">7</button>
+                <button class ='num-btn' id = "8">8</button>
+                <button class ='num-btn' id = "9">9</button>
+                <button class = 'operator' id = 'divide'>÷</button>
+            </div>
 
-        <button class ='misc' id = "clr">Clear</button>
+            <div class="row2">
+                <button class ='num-btn' id = "4">4</button>
+                <button class ='num-btn' id = "5">5</button>
+                <button class ='num-btn' id = "6">6</button>
+                <button class = 'operator' id = 'multiply'>x</button>
+            </div>
+
+            <div class="row3">
+                <button class ='num-btn' id = "1">1</button>
+                <button class ='num-btn' id = "2">2</button>
+                <button class ='num-btn' id = "3">3</button>
+                <button class = 'operator' id = 'minus'>-</button>
+            </div>
+
+            <div class="row4">
+                <button class ='num-btn' id = "0">0</button>
+                <button class = 'misc' id ='decimal'>.</button>
+                <button class = 'equal' id = 'equals'>=</button>
+                <button class = 'operator' id = 'plus'>+</button>
+            </div>
+
+
+                <button class ='misc' id = "clr">Clear</button>
+        </div>
     </div>
 
     <div class="js-script">
