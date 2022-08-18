@@ -36,7 +36,6 @@ body {
 
 .brand {
     display: flex;
-    
 }
 
 .logo {
@@ -47,13 +46,19 @@ body {
     
 }
 
-.power-circle {
+.power-circle {  /* green circle */
     width: 10px;
     height: 10px;
     margin-right: 8px;
     border-radius: 10px;
     background-color: greenyellow;
     border : 2px rgb(27, 122, 146) solid;
+}
+
+.divider {
+    width:99%;
+    margin-left :2px;
+    border: 1px solid darkslategray;
 }
 
 /* Wrapper for Display Panel */
@@ -76,7 +81,7 @@ body {
     width: 90%;
     justify-content: right;
     border : 3px    rgb(233, 232, 232) solid;
-    font-size: 50px;
+    font-size: 47.7px;
     background-color: silver;
     border-radius : 3px;
 }
@@ -100,19 +105,20 @@ button {
     font-size: xx-large;
 }
 
-/* #plus { 
-    background-color: rgb(221, 94, 94) ;
-} */
+.modifier {    /* mod buttons, negative and decimal btns */
+    background-color: tan;
+    font-weight: bold;
+}
+
+#decimal {  /* Decimal Button */
+    font-size: 40px;
+}
 
 .equal-btn {
     background-color: rgb(221, 94, 94);
+    
     color: white ;
     font-size: xx-large;
-}
-
-#decimal {
-    background-color: tan;
-    font-size: 40px;
 }
 
 .buttons-container {
@@ -129,6 +135,36 @@ button {
 }
 
 .row1 {
+    display : flex;
+    justify-content: space-between;
+    /* align-self: flex-start; */
+    width : 100%;
+    padding : 5px  2px  2px  2px;
+    
+    /* border: 1px red solid; */
+}
+
+
+
+/* midc buttons, clear and backspace */
+.misc {
+    background-color: gainsboro;
+    color : red;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+#clr {
+    width: 4.5vw;
+    margin-left: 2px;
+}
+
+#bkspc {
+    width: 4.5vw;
+}
+/* midc buttons, clear and backspace */
+
+.row2 {
     display: flex; 
     height : 13vh;
     width : 100%;
@@ -137,7 +173,7 @@ button {
     /* border: 1px rgb(109, 47, 47) solid; */
 }
 
-.row2 {
+.row3 {
     display: flex; 
     height : 13vh;
     width : 100%;  /* sets to size of parent container */
@@ -146,7 +182,7 @@ button {
     /* border: 1px rgb(109, 47, 47) solid; */
 }
 
-.row3 {
+.row4 {
     display: flex; 
     height : 13vh;
     width: 100%;
@@ -155,7 +191,7 @@ button {
     /* border: 1px rgb(109, 47, 47) solid; */
 }
 
-.row4 {
+.row5 {
     display: flex; 
     height : 13vh;
     width: 100%;

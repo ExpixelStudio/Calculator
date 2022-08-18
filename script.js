@@ -2,6 +2,7 @@
 
 let display = document.querySelector('.display');
 
+    
     let i = 0;
     let currentValue = ''; 
     let storedValue = [];
@@ -48,18 +49,18 @@ function numberButtons() {
 
     numbers.forEach((button) => {
             button.addEventListener('click' , function(e) {
-                
                 if (currentValue.length < maxLength){           // Limits user imput to 13 numbers.
-                    display.textContent += button.textContent;
+
                     currentValue += button.textContent;
+                    display.textContent = currentValue;
                     console.log({currentValue});
                     } else {
                         return;
                 }
                 
-                if(i == 1){
-                    display.textContent = currentValue;
-                }
+                    /* if(i == 1){
+                        display.textContent = currentValue;
+                    } */
             console.log(currentValue.length);
         });
     });
@@ -74,10 +75,11 @@ function operatorButtons() {
 
     operators.forEach((op) => {
         op.addEventListener('click' , function(e){
+           
             if (currentValue == '') {  // if no value entered do nothing (fixes NaN error)
                 return 
-            } 
-             storedValue[i] = parseInt(currentValue); //when any operator button is pressed store currentValue in. 
+            } else
+             storedValue[i] = parseFloat(currentValue); //when any operator button is pressed store currentValue in. 
              console.log({storedValue});
 
              
@@ -134,7 +136,10 @@ function equalButton(){
     const equalBtn = document.getElementById('equals');
     
     equalBtn.addEventListener('click' , function(e){
-        storedValue[1] = parseInt(currentValue); //stores new currentValue after pressing = button
+        if (currentValue == '') {  // if no value entered do nothing (fixes NaN error)
+            return ;
+        }
+        storedValue[1] = parseFloat(currentValue); //stores new currentValue after pressing = button
         result = operate(storedValue[0] , storedOp[0] , storedValue[1]);
               // display.textContent = '';
               let strResult = result.toString(); //converts numerical result to a string
@@ -151,6 +156,34 @@ numberButtons();
 operatorButtons();
 equalButton();
 
+let decimalBtn = () => {
+    const decimal = document.getElementById('decimal');
+        
+    decimal.addEventListener('click' , function(e){
+        if (currentValue.includes('.')) {
+            return ;
+        }
+        currentValue += decimal.textContent;
+        display.textContent = currentValue;
+    });
+}
+decimalBtn();
+
+
+let negativeToogle = () => {
+    const negative = document.getElementById('negative');
+    const neg = '-';
+
+    negative.addEventListener('click' , function(e){
+        if (currentValue.includes(neg)) {                                 //if '-' is already present 
+           currentValue = currentValue.substring(1,currentValue.length)  // return new string starting at 
+           display.textContent = currentValue;
+        }else
+            currentValue = neg.concat(currentValue); //adds '-' to beginning of the currentValue String 
+            display.textContent = currentValue;
+    }); 
+}
+negativeToogle();
 
 
 let clearBtn = () => {
@@ -161,7 +194,7 @@ let clearBtn = () => {
         currentValue = '';
         storedOp[i] = [];
         storedValue[i] = [];
-         i=0;
+         i= 0;
     });
 }
 
