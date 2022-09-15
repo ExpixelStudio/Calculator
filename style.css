@@ -12,7 +12,8 @@ body {
     
 }
 
-.device-container {
+    /* calculator body */
+.device-container {  
     display: flex;
     flex-direction: column;
     border: 2px rgb(34, 86, 107) solid;
@@ -38,10 +39,10 @@ body {
 }
 
 .logo {
-    border: 2px lightskyblue solid;
+    
     color: rgb(74, 45, 80);
     font-weight: bold;
-    padding-left: 2px;
+    padding: 2px;
     
 }
 
@@ -65,7 +66,7 @@ body {
     display:flex;
     justify-content: center;
     align-items : center;
-    border : skyblue 4px solid;
+    border : rgb(135, 206, 235) 4px solid;
     height:30%;
     background-color: rgb(61, 61, 61);
     border-radius: 8px;
@@ -80,7 +81,7 @@ body {
     width: 90%;
     justify-content: right;
     border : 3px    rgb(233, 232, 232) solid;
-    font-size: 47.7px;
+    font-size: 2.5vw; /* 47.7px; */  /* vw-view width for responsive fontsize */
     background-color: silver;
     border-radius : 3px;
 }
@@ -145,15 +146,19 @@ button {
     border-radius: 20px;
 }
 
-#clr {
+/* #clr {
     width: 4.5vw;
     margin-left: 2px;
 }
 
 #bkspc {
     width: 4.5vw;
-}
+} */
 /* misc buttons, clear and backspace */
+
+#dummy {
+    background-color : grey;
+}
 
 .row2 {
     display: flex; 
